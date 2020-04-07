@@ -1,0 +1,32 @@
+{
+  "trailingComma": "es5",
+  "overrides": [
+    {
+      "files": [
+        "*.ts,*.js,*.jsx"
+      ],
+      "options": {
+        "tabWidth": 2,
+        "singleQuote": true,
+        "semi": true
+      }
+    },
+    {
+      "files": [
+        "*.html"
+      ],
+      "options": {
+        "tabWidth": 2
+      }
+    },
+    {
+      "files": [
+        "*.scss"
+      ],
+      "options": {
+        "tabWidth": 2,
+        "singleQuote": true
+      }
+    }
+  ]
+}
