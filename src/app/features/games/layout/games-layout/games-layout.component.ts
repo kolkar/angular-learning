@@ -1,9 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { GamesService } from '../../games.service';
-import { GamesInterface } from '../../games.interface';
+import { GamesService } from '../../shared/services/games.service';
+import { GamesInterface } from '../../shared/interfaces/games.interface';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { SearchChangesService } from '../../../../core/search-changes.service';
+import { SearchChangesService } from '../../../../core/shared/services/search-changes.service';
 
 @Component({
   selector: 'app-games-layout',

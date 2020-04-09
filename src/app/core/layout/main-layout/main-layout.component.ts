@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SearchChangesService } from '../../search-changes.service';
+import { SearchChangesService } from '../../shared/services/search-changes.service';
 
 @Component({
   selector: 'app-main-layout',

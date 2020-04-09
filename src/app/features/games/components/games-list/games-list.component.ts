@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { GamesInterface } from '../../games.interface';
+import { GamesInterface } from '../../shared/interfaces/games.interface';
 
 @Component({
   selector: 'app-games-list',
@@ -11,5 +11,11 @@ export class GamesListComponent {
   @Input() gamesList: GamesInterface[];
 
   constructor() { }
+
+  public trackByFunction(index, item) {
+    if(!item) { return null; }
+
+    return item.id;
+  }
 
 }

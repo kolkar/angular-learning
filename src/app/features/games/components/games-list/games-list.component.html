@@ -1,5 +1,5 @@
 <div class="games-wrapper">
-  <mat-card class="game" *ngFor="let game of gamesList">
+  <mat-card class="game" *ngFor="let game of gamesList; trackBy: trackByFunction">
     <mat-card-content class="game-content">
       <img class="game-content-img" [src]="game.image" alt="game image" />
     </mat-card-content>
