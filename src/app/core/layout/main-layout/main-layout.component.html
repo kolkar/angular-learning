@@ -1,11 +1,14 @@
-<mat-toolbar color="primary">
-  <span>{{'my angular learning app' | titlecase}}</span>
+<mat-toolbar color="primary" class="toolbar">
+  <!--<span>{{'my angular learning app' | titlecase}}</span>
   <span class="spacer"></span>
 
+  <button mat-flat-button color="primary" routerLink="games" routerLinkActive="active">Games</button>
   <button mat-flat-button color="primary" routerLink="home" routerLinkActive="active">Home</button>
-  <button mat-flat-button color="primary" routerLink="admin" routerLinkActive="active">Admin</button>
+  <button mat-flat-button color="primary" routerLink="admin" routerLinkActive="active">Admin</button>-->
+  <app-search-input (searchValue)="searchValueHandler($event)"></app-search-input>
 </mat-toolbar>
 
 <main>
   <router-outlet></router-outlet>
 </main>
+

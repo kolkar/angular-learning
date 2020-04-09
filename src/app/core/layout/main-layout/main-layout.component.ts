@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
+import { SearchChangesService } from '../../search-changes.service';
 
 @Component({
   selector: 'app-main-layout',
   templateUrl: './main-layout.component.html',
   styleUrls: ['./main-layout.component.scss']
 })
-export class MainLayoutComponent implements OnInit {
+export class MainLayoutComponent {
 
-  constructor() { }
+  constructor(private searchChangesService: SearchChangesService) { }
 
-  ngOnInit(): void {
+  searchValueHandler(event) {
+    this.searchChangesService.setSearchValue(event);
   }
-
 }

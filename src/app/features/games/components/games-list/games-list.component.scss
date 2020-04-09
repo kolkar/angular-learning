@@ -1,0 +1,22 @@
+.games-wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  .game {
+    margin: 0 15px 15px 0;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &-title {
+      text-align: center;
+    }
+
+    &-content-img {
+      width: 200px;
+      height: 200px;
+    }
+  }
+}

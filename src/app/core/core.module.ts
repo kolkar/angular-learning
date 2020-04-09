@@ -5,6 +5,9 @@ import { RouterModule } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MainLayoutComponent } from './layout/main-layout/main-layout.component';
+import { SharedModule } from '../shared/shared.module';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { ApiInterceptor } from './api.interceptor';
 
 
 @NgModule({
@@ -14,12 +17,21 @@ import { MainLayoutComponent } from './layout/main-layout/main-layout.component'
     BrowserModule,
     BrowserAnimationsModule,
     RouterModule,
+    HttpClientModule,
 
     // material
     MatToolbarModule,
-    MatButtonModule
+    MatButtonModule,
+    SharedModule
   ],
-  exports: [MainLayoutComponent]
+  exports: [MainLayoutComponent],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ApiInterceptor,
+      multi: true
+    }
+  ]
 })
 export class CoreModule {
 }

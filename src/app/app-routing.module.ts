@@ -5,7 +5,7 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'home'
+    redirectTo: 'games'
   },
   {
     path: 'home',
@@ -17,9 +17,10 @@ const routes: Routes = [
     loadChildren: () =>
       import('./features/admin/admin.module').then((m) => m.AdminModule)
   },
+  { path: 'games', loadChildren: () => import('./features/games/games.module').then(m => m.GamesModule) },
   {
     path: '**',
-    redirectTo: 'home'
+    redirectTo: 'games'
   }
 ];
 

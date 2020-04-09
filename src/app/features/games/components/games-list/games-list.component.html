@@ -1,0 +1,9 @@
+<div class="games-wrapper">
+  <mat-card class="game" *ngFor="let game of gamesList">
+    <mat-card-content class="game-content">
+      <img class="game-content-img" [src]="game.image" alt="game image" />
+    </mat-card-content>
+
+    <mat-card-title class="game-title">{{game.title}}</mat-card-title>
+  </mat-card>
+</div>
