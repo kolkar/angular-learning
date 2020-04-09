@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { SearchChangesService } from '../../shared/services/search-changes.service';
 
 @Component({

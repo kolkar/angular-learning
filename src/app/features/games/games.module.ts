@@ -13,6 +13,7 @@ import { MatCardModule } from '@angular/material/card';
   imports: [
     CommonModule,
     GamesRoutingModule,
+
     MatCardModule
   ],
   providers: [{ provide: GamesService, useClass: GamesService }]

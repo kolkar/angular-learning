@@ -13,17 +13,14 @@ import { ApiInterceptor } from './shared/api.interceptor';
 @NgModule({
   declarations: [MainLayoutComponent],
   imports: [
-    // vendor
     BrowserModule,
     BrowserAnimationsModule,
     RouterModule,
     HttpClientModule,
 
-    // material
     MatToolbarModule,
     MatButtonModule,
 
-    // local
     SharedModule
   ],
   exports: [MainLayoutComponent],
