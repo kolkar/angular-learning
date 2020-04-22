@@ -14,15 +14,16 @@ export class ConditionImportComponent implements OnInit {
 
     await this.dynamicImport();
 
-    this.nullishCoalescing();
+    console.log(this.nullishCoalescing());
   }
 
   // TODO: Check https://www.freecodecamp.org/news/javascript-new-features-es2020/amp/
   /***
   * Big int allows to store numbers more than pow(2, 53) - 1
   * */
-  private bigInt(): bigint {
-    let bigInt = 9007199254740992n;
+  private bigInt(): number {
+    // Add "n" to end of number
+    let bigInt = 9007199254740992;
     bigInt++;
     bigInt++;
 
@@ -37,6 +38,8 @@ export class ConditionImportComponent implements OnInit {
   private nullishCoalescing() {
     return {
       falseValue: false ?? 'truth',
+      nullish: null ?? 'truth',
+      zero: 0 ?? 'truth',
     }
   }
 }
