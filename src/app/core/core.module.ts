@@ -7,21 +7,20 @@ import { MatButtonModule } from '@angular/material/button';
 import { MainLayoutComponent } from './layout/main-layout/main-layout.component';
 import { SharedModule } from '../shared/shared.module';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { ApiInterceptor } from './api.interceptor';
+import { ApiInterceptor } from './shared/api.interceptor';
 
 
 @NgModule({
   declarations: [MainLayoutComponent],
   imports: [
-    // vendor
     BrowserModule,
     BrowserAnimationsModule,
     RouterModule,
     HttpClientModule,
 
-    // material
     MatToolbarModule,
     MatButtonModule,
+
     SharedModule
   ],
   exports: [MainLayoutComponent],

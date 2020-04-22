@@ -1,19 +1,17 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { GamesService } from '../../games.service';
-import { GamesInterface } from '../../games.interface';
-import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
-import { SearchChangesService } from '../../../../core/search-changes.service';
+import { Component, OnInit } from '@angular/core';
+import { GamesService } from '../../shared/services/games.service';
+import { GamesInterface } from '../../shared/interfaces/games.interface';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { SearchChangesService } from '../../../../core/shared/services/search-changes.service';
 
 @Component({
   selector: 'app-games-layout',
   templateUrl: './games-layout.component.html',
   styleUrls: ['./games-layout.component.scss']
 })
-export class GamesLayoutComponent implements OnInit, OnDestroy {
-  public gamesList: GamesInterface[] = [];
-  private games: GamesInterface[] = [];
-  protected $unsubscriber: Subject<void> = new Subject<void>();
+export class GamesLayoutComponent implements OnInit {
+  public gamesList$: Observable<GamesInterface[]>;
 
   constructor(
     private gamesService: GamesService,
@@ -22,27 +20,18 @@ export class GamesLayoutComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.getGamesList();
-    this.searchChangesService.searchValue.subscribe(value => this.filterGamesList(value));
+    this.searchChangesService.searchValue.subscribe(value => this.getGamesList(value));
   }
 
-  getGamesList(): void {
-    this.gamesService.getGamesList().pipe(
-      takeUntil(this.$unsubscriber)
-    ).subscribe((games) => {
-      this.games = games;
-      this.filterGamesList();
-    });
+  getGamesList(title): void {
+    this.gamesList$ = this.gamesService.getGamesList().pipe(
+      map((games: GamesInterface[]) => this.filterGamesList(title, games))
+    );
   }
 
-  filterGamesList(title = ''): GamesInterface[] {
-    if(!title) { return this.gamesList = this.games; }
+  filterGamesList(title, games): GamesInterface[] {
+    if(!title) { return games; }
 
-    return this.gamesList = this.games.filter(game => game.title.includes(title));
-  }
-
-  ngOnDestroy(): void {
-    this.$unsubscriber.next();
-    this.$unsubscriber.complete();
+    return games.filter(game => game.title.includes(title));
   }
 }

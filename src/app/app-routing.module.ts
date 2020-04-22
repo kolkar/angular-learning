@@ -8,16 +8,6 @@ const routes: Routes = [
     redirectTo: 'games'
   },
   {
-    path: 'home',
-    loadChildren: () =>
-      import('./features/home/home.module').then((m) => m.HomeModule)
-  },
-  {
-    path: 'admin',
-    loadChildren: () =>
-      import('./features/admin/admin.module').then((m) => m.AdminModule)
-  },
-  {
     path: 'es-2020',
     loadChildren: () =>
       import('./features/es-2020/es-2020.module').then((m) => m.Es2020Module)
